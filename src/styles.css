@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+button {
+    margin: 5px;
+    border: 1px solid black;
+}
+.backgroundcolor {
+    /* background-image:linear-gradient( gray, darkgray); */
+    background-color: rgb(71, 79, 87);
+    color:lightgrey;
+    height: 1500px;
+}
+* {
+    font-family: sans-serif;
+}
+img {
+    border: 2px solid black;
+}
+.jumbotron {
+    color: #343A40;
+}
+.float-right {
+    border:0px;
+    
+}

@@ -1,0 +1,112 @@
+<section>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/']">Home</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['new']">Add Pet</a>
+            </li>
+        </ul>
+      </nav>
+      <br>
+  <p>Edit this Pet</p>
+  <fieldset>
+    <ul *ngIf="errors">
+      <li class="errors" *ngFor="let error of errors">{{error}}</li>
+    </ul>
+    <div>  
+      <form class="form-group" name="Form" #form="ngForm" (submit)="onUpdate($event, form)">
+          <label for="_id"></label>
+          <input
+          class="form-control"
+          type="hidden" name="_id"
+          [(ngModel)]="pet._id"
+          #name="ngModel"
+          >
+        
+        <label for="name">Pet Name:</label><br>
+        <input
+        class="form-control"
+        type="text" name="name"
+        required
+        minlength="3"
+        [(ngModel)]="pet.name"
+        #name="ngModel"
+        size="50"
+        >
+        <br>
+    
+        <label for="type">Pet Type</label><br>
+        <input
+        class="form-control"
+        type="text" name="type"
+        required
+        [(ngModel)]="pet.type"
+        #qty="ngModel"
+        size="50"
+        >
+        <br>
+        <label for="location">Location</label><br>
+        <input
+        class="form-control"
+        type="text" name="location"
+        required
+        [(ngModel)]="pet.location"
+        #qty="ngModel"
+        size="50"
+        >
+        <br>
+        <label for="description">Description</label><br>
+        <input
+        class="form-control"
+        type="text" name="description"
+        required
+        [(ngModel)]="pet.description"
+        #location="ngModel"
+        size="50"
+        >
+        <br>
+        <label for="skill1">Adoption Status:  </label><br>
+        <input  type="radio" name="skill1" [(ngModel)]="pet.skill1" value="Ready" #price="ngModel"/> Ready to Adopt <br>
+        <input type="radio" name="skill1" [(ngModel)]="pet.skill1" value="Needs Help" #price="ngModel"/> Needs Help <br>
+        <br>
+        <p>Traits(optional):</p>
+        <label for="skill2">Trait 1:  </label>
+        <input
+        class="form-control"
+        type="text" name="skill2"
+        required
+        [(ngModel)]="pet.skill2"
+        #price="ngModel"
+        >
+        <br>
+        <label for="skill3">Trait 2:  </label>
+        <input
+        class="form-control"
+        type="text" name="skill3"
+        required
+        [(ngModel)]="pet.skill3"
+        #price="ngModel"
+        >
+        <br>
+        <label for="imageUrl">Image Url:  </label>
+        <input
+        class="form-control"
+        type="text" name="imageUrl"
+        required
+        [(ngModel)]="pet.imageUrl"
+        #price="ngModel"
+        >
+        <input
+        class="btn btn-info"
+        *ngIf="form.valid" id="updateButton" type="submit" value="Edit pet">
+        <!-- [disabled]="!editbikeForm.valid" -->
+        <button class="btn btn-danger" [routerLink]="['/']">Cancel</button>
+      </form>
+    </div>
+  </fieldset>
+</section>

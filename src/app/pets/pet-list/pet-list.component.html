@@ -1,0 +1,44 @@
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['about']">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['new']">Add Pet</a>
+      </li>
+    </ul>
+  </nav>
+  <br>
+  <p>These Pets are looking for their forever home or someone to help!</p>
+<section>
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th class="top">Name</th>
+      <th class="top">Type</th>
+      <th class="top">Location</th>
+      <th class="top">Status</th>
+      <th class="top">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr
+      *ngFor="let pet of pets "
+      (click)="onSelect(pet)"
+      [routerLink]="pet._id"
+    >
+      <td>{{ pet.name }}</td>
+      <td>{{ pet.type }}</td>
+      <td>{{ pet.location }}</td>
+      <td>{{ pet.skill1 }}</td>
+
+      <td><a [routerLink]="[pet._id]"><button  class="btn btn-info">Details</button> </a>  <a [routerLink]="[pet._id, 'edit']"> <button  class="btn btn-warning" >Edit</button></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+

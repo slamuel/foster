@@ -1,0 +1,38 @@
+<div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['new']">Add Pet</a>
+            </li>
+        </ul>
+      </nav>
+      <br>
+<section *ngIf="pet">
+  <img src="{{ pet.imageUrl }}" alt="{{pet.name}}" height=200 class="float-right">
+  <h3> Details about {{ pet.name }}</h3>
+  <p> <strong>Type:</strong> {{ pet.type }}</p>
+  <p> <strong>Description:</strong> {{ pet.description }}</p>
+  <p><strong>Location: </strong> {{ pet.location }}</p>
+  <p> <strong>Adoption Status:</strong> {{ pet.skill1 }}</p> 
+    <section *ngIf="pet.skill2">
+      <p> <strong>Traits:</strong></p>
+      <p>{{pet.skill2}}</p>
+      <p>{{pet.skill3}}</p>
+    </section>
+    <div *ngIf="pet.skill1 === 'Ready'">
+    <button class="btn btn-info" (click)="onDelete(pet._id)">Adopt this pet!</button>
+    </div>
+    <div *ngIf="pet.skill1 === 'Needs Help'">
+    <button class="btn btn-info" (click)="onDelete(pet._id)">Help Me!</button>
+    </div>
+    <!-- <iframe width="600" height="450" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/view
+    ?key=AIzaSyAtTlU3TnmA8urzNvhekj7EagvI9kyWpRM&q={{pet.location}}"></iframe> -->
+  </section>
+</div>

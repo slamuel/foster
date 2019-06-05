@@ -1,0 +1,53 @@
+<section>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+      </ul>
+    </nav>
+    <br>
+    <p>Know of a Pet needing a home?</p>
+  <fieldset>
+    <ul *ngIf="errors">
+      <li class="errors" *ngFor="let error of errors">{{error}}</li>
+    </ul>
+    <div>
+    <form class="form-group" (submit)="onSubmit($event, form)" #form="ngForm" autocomplete="off">
+        <label for="">Pet Name:</label><br>
+        <input class="form-control" type="text" name="title" [(ngModel)]="pet.name" required  size="50"/>
+        <label for="">Pet Type:</label><br>
+        <input class="form-control" type="text" name="type" [(ngModel)]="pet.type" required  size="50"/>
+  
+        <label for="">Location:</label><br>
+        <input class="form-control" type="text" name="type" [(ngModel)]="pet.location" required  size="50"/>
+  
+        <label for="">Pet Description:</label><br>
+        <input class="form-control" type="text" name="description" [(ngModel)]="pet.description" size="50" />
+  
+        <label for="">Adoption Status:  </label>
+        <br>
+        <input  type="radio" name="skill1" [(ngModel)]="pet.skill1" value="Ready"/>
+        Ready to Adopt
+        <input  type="radio" name="skill1" [(ngModel)]="pet.skill1" value="Needs Help"/> Needs Help
+        <br>
+        <p>Traits(optional):</p>
+        <label for="">Trait 1:  </label>
+        <input class="form-control" type="text" name="skill2" [(ngModel)]="pet.skill2"  />
+    
+          <label for="">Trait 2:  </label>
+          <input class="form-control" type="text" name="skill3" [(ngModel)]="pet.skill3" />
+      <br>
+        <p> Image:</p>
+        <label for="">Image Url:  </label>
+        <input class="form-control" type="text" name="imageUrl" [(ngModel)]="pet.imageUrl"  />
+      
+      <button class="btn btn-info" *ngIf="form.valid">Add Pet</button>
+      <button class="btn btn-danger"[routerLink]="['/']">Cancel</button>
+    </form>
+  </div>
+  </fieldset>
+</section>
